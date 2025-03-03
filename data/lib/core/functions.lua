@@ -110,10 +110,10 @@ end
 
 function Player:iconsHandler()
     local playerName = self:getName()
-    if bossRanking[playerName] then
-        local rank = bossRanking[playerName]
-        self:addCustomIcon(imagesBossRanking[rank].image, imagesBossRanking[rank].x, imagesBossRanking[rank].y)
-    end
+    -- if bossRanking[playerName] then
+    --     local rank = bossRanking[playerName]
+    --     self:addCustomIcon(imagesBossRanking[rank].image, imagesBossRanking[rank].x, imagesBossRanking[rank].y)
+    -- end
 end
 
 function Player:resetStorages()

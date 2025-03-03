@@ -331,7 +331,7 @@ end
 function getDuelistRandomPokemons(duelist, diff)
     local pokemons = {}
     local pokesNumber = math.random(DUELISTS_TYPE[duelist].pokesNumber[1], DUELISTS_TYPE[duelist].pokesNumber[2])
-    local availablePokes = { unpack(DUELISTS_POKEMONS_TYPE[diff]) }
+    local availablePokes = { unpack and unpack or table.unpack(DUELISTS_POKEMONS_TYPE[diff]) }
 
     for i = 1, pokesNumber do
         if #availablePokes == 0 then
