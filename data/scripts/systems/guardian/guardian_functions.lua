@@ -7,7 +7,7 @@ function Player:summonGuardian(guardianName)
         if pokemon then
             guardian:removeTarget(pokemon)
         end
-        self:say("Vá " .. guardian:getName() .. "!", TALKTYPE_MONSTER_SAY)
+        self:say("Vï¿½ " .. guardian:getName() .. "!", TALKTYPE_MONSTER_SAY)
         return guardian
     end
 end
@@ -63,7 +63,7 @@ function action.onUse(player, item, fromPosition, target, toPosition)
     return true
 end
 
-for id in pairs(guardians_list) do
+for id, _ in pairs(guardians_list) do
     action:id(id)
 end
 

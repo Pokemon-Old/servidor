@@ -28,7 +28,7 @@ fishingTable = {
 	},
 
 	iscasStorage = 1000000,  -- storage da isca / armazena o id da isca.
-	isFishing = 1000001,     -- storage do player / checa se está pescando
+	isFishing = 1000001,     -- storage do player / checa se estï¿½ pescando
 	boia = 41631,            -- id do item da boia na agua.
 	efeito = 342,            -- efeito na agua de bolha
 	maxDistanceToFish = 6,   -- distancia maxima para pescar
@@ -55,15 +55,15 @@ function ActionFish.onUse(player, item, fromPosition, target, toPosition)
 	end
 
 	if player:isOnRide() or player:isOnFly() or player:isOnSurf() or player:isOnBike() or player:isOnEvent()then
-		return player:sendCancelMessage("Você não pode pescar enquanto está em condição especial.")
+		return player:sendCancelMessage("Vocï¿½ nï¿½o pode pescar enquanto estï¿½ em condiï¿½ï¿½o especial.")
 	end
 
 	if isInArray(fishingTable.waters, getTileInfo(getThingPos(player)).itemid) then
-		return player:sendCancelMessage("Você não pode pescar se estiver dentro da água.")
+		return player:sendCancelMessage("Vocï¿½ nï¿½o pode pescar se estiver dentro da ï¿½gua.")
 	end
 
 	if getTileInfo(getThingPos(player:getSummons() and player:getSummons()[1] or player)).protection or getTileInfo(getThingPos(player)).protection then
-		return player:sendCancelMessage("Você não pode pescar se você ou seu pokemon estiver em uma zona de proteção.")
+		return player:sendCancelMessage("Vocï¿½ nï¿½o pode pescar se vocï¿½ ou seu pokemon estiver em uma zona de proteï¿½ï¿½o.")
 	end
 
 	if player:isFishing() then
@@ -71,12 +71,12 @@ function ActionFish.onUse(player, item, fromPosition, target, toPosition)
 	end
 
 	if isFishFar(player:getPosition(), toPosition) then
-		return player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Você não tem forças suficientes para arremessar até lá!')
+		return player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Vocï¿½ nï¿½o tem forï¿½as suficientes para arremessar atï¿½ lï¿½!')
 	end
 
     local isca = player:getIscaPlayer()
 	if isca ~= -1 and not player:removeItem(isca, 1) then
-		return player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Sem iscas. compre uma isca no vendedor mais próximo para continuar com sua pesca!")
+		return player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Sem iscas. compre uma isca no vendedor mais prï¿½ximo para continuar com sua pesca!")
 	end
 
 	player:startFishing(toPosition)
@@ -97,11 +97,11 @@ function ActionIsca.onUse(player, item, fromPosition, target, toPosition)
     local sto = fishingTable.iscasStorage
 
     if player:getSkillLevel(6) < isca.fishLevel then
-       return player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você precisa de fishing nível: " .. isca.fishLevel .. " para usar essa isca.")
+       return player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ precisa de fishing nï¿½vel: " .. isca.fishLevel .. " para usar essa isca.")
     end
 
     if player:getLevel() < isca.level then
-       return player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Você precisa de level " .. isca.level .. " para usar essa isca.")
+       return player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Vocï¿½ precisa de level " .. isca.level .. " para usar essa isca.")
     end
 
     if player:getStorageValue(sto) == -1 then
@@ -114,7 +114,7 @@ function ActionIsca.onUse(player, item, fromPosition, target, toPosition)
     return true
 end
 
-for isca in pairs(iscas) do
+for isca, _ in pairs(iscas) do
     ActionIsca:id(isca)
 end
 
@@ -182,7 +182,7 @@ function Player:fishPoke(poke, qnt, toPos)
 
 	if chancePescarTesouro >= math.random(100) then
 		local tesouro = fishingTable.tesouros[math.random(#fishingTable.tesouros)]
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, ("Você pescou um tesouro de categoria: %s, meus parabens!"):format(tesouro.rarity))
+		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, ("Vocï¿½ pescou um tesouro de categoria: %s, meus parabens!"):format(tesouro.rarity))
 		self:addItem(tesouro.itemId, tesouro.quantity)
 		if self:getSkillLevel(6) <= fishingTable.maxNivelPesca then
 			self:addSkillTries(6, fishingTable.expPesca)
@@ -191,10 +191,10 @@ function Player:fishPoke(poke, qnt, toPos)
 	end
 
 	if chanceQuebrarLinha >= math.random(100) then
-		return true and self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "o pokémon quebrou a linha e fugiu!!!!!")
+		return true and self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "o pokï¿½mon quebrou a linha e fugiu!!!!!")
 	end
 
-	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você pescou um " .. poke .. "!")
+	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ pescou um " .. poke .. "!")
 
 	for v = 1, qnt do
 		Game.createMonster(poke, self:getPosition())

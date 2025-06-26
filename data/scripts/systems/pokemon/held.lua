@@ -372,18 +372,18 @@ function action_held.onUse(player, item, fromPosition, target, toPosition)
   	end
 
 	if hasSummons(player) then
-		return player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Guarde seu pokémon!")
+		return player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Guarde seu pokï¿½mon!")
 	end
 
 	if not held then
-		return error(("[Held System - ACTION]: Item não configurado: %d"):format(item.itemid))
+		return error(("[Held System - ACTION]: Item nï¿½o configurado: %d"):format(item.itemid))
 	end
 
 	local verificar = target:getAttribute(held.attribute)
     local newInfos = HELD_CONVERT_NAME_TO_TABLE[held.attribute][held.ident]
 
     if not newInfos then
-        return error(("[Held System - ACTION]: Held não configurado! Ident: %d - Attribute: %s"):format(held.ident, held.attribute))
+        return error(("[Held System - ACTION]: Held nï¿½o configurado! Ident: %d - Attribute: %s"):format(held.ident, held.attribute))
     end
 
     local newTier = newInfos.tier
@@ -393,16 +393,16 @@ function action_held.onUse(player, item, fromPosition, target, toPosition)
     local oldType = oldInfos and oldInfos.type or nil
 
     if (verificar == 0 and newTier ~= 1) or (verificar ~= 0 and newTier ~= 1 and oldType ~= newType) then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você deve utilizar o tier 1 primeiro!")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ deve utilizar o tier 1 primeiro!")
         return true
     elseif verificar ~= 0 and oldType == newType then
         if oldTier > newTier then
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você não pode usar um held já existente no pokémon!")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ nï¿½o pode usar um held jï¿½ existente no pokï¿½mon!")
             return true
         end
 
         if oldTier+1 ~= newTier then
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Você deve seguir a ordem numérica dos helds. O próximo held deve ser: " .. oldTier+1)
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Vocï¿½ deve seguir a ordem numï¿½rica dos helds. O prï¿½ximo held deve ser: " .. oldTier+1)
             return true
         end
     end
@@ -423,4 +423,4 @@ for id in pairs(heldTable) do
     action_held:id(id)
 end
 
-action_held:register()
+--action_held:register()

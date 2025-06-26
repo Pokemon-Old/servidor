@@ -4,7 +4,7 @@ function action.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local pokemon = player:getSummon()
 
 	if not pokemon or target ~= pokemon then
-		player:sendCancelMessage("Você só pode evoluir o seu pokémon.")
+		player:sendCancelMessage("Vocï¿½ sï¿½ pode evoluir o seu pokï¿½mon.")
 		return true
 	end
 
@@ -50,7 +50,7 @@ function action.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		if canEvolve and stoneFinded then
 
 			if playerLevel < minLevel then
-				player:sendCancelMessage("Você precisa estar level " .. minLevel .. " para evoluir seu pokémon.")
+				player:sendCancelMessage("Vocï¿½ precisa estar level " .. minLevel .. " para evoluir seu pokï¿½mon.")
 				return true
 			end
 
@@ -60,25 +60,25 @@ function action.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 			local randomChance = math.random(1, 100)
 			if pokeChance < randomChance then
-				player:sendCancelMessage("A evolução do seu pokémon falhou.")
+				player:sendCancelMessage("A evoluï¿½ï¿½o do seu pokï¿½mon falhou.")
 				return true
 			end
 			isEvolutionSuccessfull = true
 			break
 		elseif stoneFinded and not canEvolve then
-			player:sendCancelMessage("Você não possui todas as stones necessárias para evoluir seu pokémon.")
+			player:sendCancelMessage("Vocï¿½ nï¿½o possui todas as stones necessï¿½rias para evoluir seu pokï¿½mon.")
 			return true
 		end
 	end
 
 	if not stoneFinded then
-		player:sendCancelMessage("Seu pokémon não evolui com essa stone.")
+		player:sendCancelMessage("Seu pokï¿½mon nï¿½o evolui com essa stone.")
 		return true
 	end
 
 	if isEvolutionSuccessfull then
 		local newPokemon = pokeName
-		player:say("Wow, meu " .. pokemon:getName() .. " está evoluindo!!!", TALKTYPE_ORANGE_1)
+		player:say("Wow, meu " .. pokemon:getName() .. " estï¿½ evoluindo!!!", TALKTYPE_ORANGE_1)
 		local oldPosition = pokemon:getPosition()
 		oldPosition:sendMagicEffect(20)
 		ball:setSpecialAttribute("pokeName", newPokemon)
@@ -91,7 +91,7 @@ function action.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 local stones = {11450, 11445, 11446}
-for _, id in pairs(stones ) do
+for _, id in pairs(stones) do
 	action:id(id)
 end
 action:allowFarUse(true)

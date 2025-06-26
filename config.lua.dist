@@ -81,9 +81,9 @@ maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
 mysqlHost = "127.0.0.1"
-mysqlUser = ""
-mysqlPass = ""
-mysqlDatabase = ""
+mysqlUser = "servidor"
+mysqlPass = "123456"
+mysqlDatabase = "pokemon_dev"
 mysqlPort = 3306
 mysqlSock = ""
 passwordType = "sha1"

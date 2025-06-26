@@ -22,17 +22,19 @@ function action.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:getStorageValue(charmStorage) - os.time() > 0 then
         local remainingTime = (player:getStorageValue(charmStorage) - os.time())
         player:setStorageValue(charmStorage, remainingTime + charm.time + os.time())
-        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, string.format("Você acaba de adicionar tempo a: %s, novo tempo: %s", charm.name, convertTime(remainingTime + charm.time)))
+        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, string.format("Vocï¿½ acaba de adicionar tempo a: %s, novo tempo: %s", charm.name, convertTime(remainingTime + charm.time)))
         item:remove(1)
         return true
     end
 
     player:setStorageValue(charmStorage, charm.time + os.time())
 
-    doPlayerSendTextMessage(player, MESSAGE_STATUS_CONSOLE_BLUE, string.format("Você acaba de ativar um %s, com duração de: %s", charm.name, convertTime(charm.time)))
+    doPlayerSendTextMessage(player, MESSAGE_STATUS_CONSOLE_BLUE, string.format("Vocï¿½ acaba de ativar um %s, com duraï¿½ï¿½o de: %s", charm.name, convertTime(charm.time)))
     item:remove(1)
     return true
 end
 
-action:id(23149, 23151, 23152)
+for itemId, _ in pairs(charms) doAdd commentMore actions
+    action:id(itemId)
+end
 action:register()
