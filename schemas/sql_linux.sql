@@ -127,7 +127,7 @@ CREATE TABLE `bonificacoes` (
 CREATE TABLE `boss_ranking` (
   `classificacao` int NOT NULL,
   `player` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -284,7 +284,7 @@ CREATE TABLE `config_permission_push` (
   `deletar` varchar(1) NOT NULL DEFAULT 'F',
   `status` varchar(1) DEFAULT 'F',
   `id_account` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -438,7 +438,7 @@ CREATE TABLE `download` (
 CREATE TABLE `global_storage` (
   `key` int UNSIGNED NOT NULL,
   `value` varchar(255) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -464,7 +464,7 @@ CREATE TABLE `guilds` (
   `pacifism` bigint NOT NULL DEFAULT '0',
   `pacifism_status` tinyint NOT NULL DEFAULT '0',
   `buffs_save` bigint UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Gatilhos `guilds`
@@ -491,7 +491,7 @@ CREATE TABLE `guilds_inbox` (
   `type` tinyint NOT NULL,
   `text` varchar(255) NOT NULL,
   `finished` tinyint NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -507,7 +507,7 @@ CREATE TABLE `guilds_inbox_old` (
   `type` tinyint NOT NULL,
   `text` varchar(255) NOT NULL,
   `finished` tinyint NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -518,7 +518,7 @@ CREATE TABLE `guilds_inbox_old` (
 CREATE TABLE `guilds_player_inbox` (
   `player_id` int NOT NULL,
   `inbox_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -534,7 +534,7 @@ CREATE TABLE `guildwar_kills` (
   `killerguild` int NOT NULL DEFAULT '0',
   `targetguild` int NOT NULL DEFAULT '0',
   `time` bigint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -562,7 +562,7 @@ CREATE TABLE `guild_members` (
   `nick` varchar(15) NOT NULL DEFAULT '',
   `leader` tinyint NOT NULL DEFAULT '0',
   `contribution` bigint UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -577,7 +577,7 @@ CREATE TABLE `guild_ranks` (
   `permissions` int NOT NULL DEFAULT '0',
   `default` tinyint NOT NULL DEFAULT '0',
   `leader` tinyint NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -597,7 +597,7 @@ CREATE TABLE `guild_wars` (
   `started` bigint NOT NULL DEFAULT '0',
   `ended` bigint NOT NULL DEFAULT '0',
   `winner` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1113,7 +1113,7 @@ CREATE TABLE `pokeball_stats` (
   `super` int NOT NULL DEFAULT '0',
   `especial` int NOT NULL DEFAULT '0',
   `divine` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1125,7 +1125,7 @@ CREATE TABLE `pokemon_points` (
   `player_id` int NOT NULL,
   `pokemonName` varchar(255) NOT NULL,
   `pontos` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1139,7 +1139,7 @@ CREATE TABLE `push` (
   `titulo` varchar(100) NOT NULL,
   `mensagem` varchar(200) NOT NULL,
   `date_created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1154,7 +1154,7 @@ CREATE TABLE `redeem_codes` (
   `player_id` int DEFAULT NULL,
   `max_uses` int DEFAULT NULL,
   `total_used` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1203,7 +1203,7 @@ CREATE TABLE `shop_history` (
   `price` int NOT NULL,
   `count` int NOT NULL DEFAULT '0',
   `target` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1299,7 +1299,7 @@ CREATE TABLE `tokenvalidat` (
   `token` varchar(255) DEFAULT NULL,
   `expired` varchar(1) DEFAULT 'F',
   `validation_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1310,7 +1310,7 @@ CREATE TABLE `tokenvalidat` (
 CREATE TABLE `verificar_callback` (
   `id` int NOT NULL,
   `passou` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices de tabelas apagadas
